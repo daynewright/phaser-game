@@ -1,0 +1,21 @@
+{
+  "name": "phaser-game",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Dayne Wright <daynewr@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/daynewright/phaser-game",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "phaser": "^2.6.1",
+    "bootstrap": "^3.3.7"
+  }
+}

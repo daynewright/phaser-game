@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game</title>
+    <script type="text/javascript" src="../bower_components/phaser/build/phaser.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+  </head>
+  <body>
+    <style media="screen">
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+      }
+      canvas {
+        margin: 50px auto;
+        border: 5px solid grey;
+      }
+    </style>
+
+    <script type="text/javascript">
+    var game = new Phaser.Game(800, 800, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+    var car;
+    function preload(){
+       game.load.image('roadsWater', 'assets/images/spritesheet.png');
+       game.load.image('tree1', 'assets/images/trees/pineAutumn_high.png');
+       game.load.image('tree2', 'assets/images/trees/treeBlue_high.png');
+       game.load.image('cactus', 'assets/images/trees/treeCactus_2.png');
+
+       for(var i = 0; i < 7; i++){
+          game.load.image(`car${i}`, `assets/images/cars/car_${i}.png`);
+       }
+
+       car = game.load.image('car', 'assets/images/cars/car_0.png');
+
+
+       game.load.tilemap('testTiled', 'assets/tilemaps/testTiled.json', null, Phaser.Tilemap.TILED_JSON);
+      //  game.load.spritesheet('ufo', 'assets/sprites/ufo.png', 24, 21);
+
+    }
+
+    function create(){
+      var cloudLayer = game.add.group();
+      var treeLayer = game.add.group();
+
+      game.physics.startSystem(Phaser.Physics.ARCADE);
+
+      game.map = game.add.tilemap('testTiled');
+      game.map.addTilesetImage('spritesheet', 'roadsWater');
+
+      game.ground = game.map.createLayer('ground');
+      game.roads = game.map.createLayer('road');
+      game.water = game.map.createLayer('water');
+
+      for (var i = 0; i < 5; i++){
+          game.add.sprite(game.world.randomX, game.world.randomY, 'tree1');
+          game.add.sprite(game.world.randomX, game.world.randomY, 'tree2');
+          game.add.sprite(game.world.randomX, game.world.randomY, 'cactus');
+          game.add.sprite(-75, game.world.height - 225, `car${i}`);
+      }
+
+      game.add.sprite(0, game.world.height - 710, 'car');
+
+      for (var i = 0; i < 7; i++){
+          game.add.sprite(game.world.randomX, game.world.height - 710, `car${i}`);
+      }
+        //trying to use tween but not working?? not sure what it is exactly.
+      	game.add.tween(car).to( { x: game.world.centerX }, 4000, Phaser.Easing.Bounce.Out, true);
+
+
+
+    }
+
+    function update(){
+
+    }
+
+
+    </script>
+  </body>
+</html>
