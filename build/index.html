@@ -21,18 +21,37 @@
 
     <script type="text/javascript">
     var game = new Phaser.Game(800, 800, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-    var car;
+    var car0;
+    var car1;
+    var car2;
+    var car3;
+    var car4;
+    var car5;
+    var car6;
+
+    var car0b;
+    var car1b;
+    var car2b;
+    var car3b;
+    var car4b;
+    var car5b;
+    var car6b;
+
     function preload(){
-       game.load.image('roadsWater', 'assets/images/spritesheet.png');
-       game.load.image('tree1', 'assets/images/trees/pineAutumn_high.png');
-       game.load.image('tree2', 'assets/images/trees/treeBlue_high.png');
-       game.load.image('cactus', 'assets/images/trees/treeCactus_2.png');
+      game.load.image('roadsWater', 'assets/images/spritesheet.png');
+      game.load.image('tree1', 'assets/images/trees/pineAutumn_high.png');
+      game.load.image('tree2', 'assets/images/trees/treeBlue_high.png');
+      game.load.image('cactus', 'assets/images/trees/treeCactus_2.png');
+      game.load.image(`car`, `assets/images/cars/car_0.png`);
 
-       for(var i = 0; i < 7; i++){
-          game.load.image(`car${i}`, `assets/images/cars/car_${i}.png`);
-       }
-
-       car = game.load.image('car', 'assets/images/cars/car_0.png');
+       // load car images as car0,car1,car2,car3,car4,car5,car6 //
+      game.load.image('car0', 'assets/images/cars/car_0.png');
+      game.load.image('car1', 'assets/images/cars/car_1.png');
+      game.load.image('car2', 'assets/images/cars/car_2.png');
+      game.load.image('car3', 'assets/images/cars/car_3.png');
+      game.load.image('car4', 'assets/images/cars/car_4.png');
+      game.load.image('car5', 'assets/images/cars/car_5.png');
+      game.load.image('car6', 'assets/images/cars/car_6.png');
 
 
        game.load.tilemap('testTiled', 'assets/tilemaps/testTiled.json', null, Phaser.Tilemap.TILED_JSON);
@@ -41,8 +60,8 @@
     }
 
     function create(){
-      var cloudLayer = game.add.group();
-      var treeLayer = game.add.group();
+      // var cloudLayer = game.add.group();
+      // var treeLayer = game.add.group();
 
       game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -53,27 +72,83 @@
       game.roads = game.map.createLayer('road');
       game.water = game.map.createLayer('water');
 
+      // car = game.add.sprite(0, game.world.height - 710, 'car');
+
+
+      //add each car image sprite
+        var carSprite0 = game.add.sprite(-75, game.world.height - 710, 'car0');
+        var carSprite1 = game.add.sprite(-75, game.world.height - 710, 'car1');
+        var carSprite2 = game.add.sprite(-75, game.world.height - 710, 'car2');
+        var carSprite3 = game.add.sprite(-75, game.world.height - 710, 'car3');
+        var carSprite4 = game.add.sprite(-75, game.world.height - 710, 'car4');
+        var carSprite5 = game.add.sprite(-75, game.world.height - 710, 'car5');
+        var carSprite6 = game.add.sprite(-75, game.world.height - 710, 'car6');
+
+        var carSprite0b = game.add.sprite(875, game.world.height - 210, 'car0');
+        var carSprite1b = game.add.sprite(875, game.world.height - 210, 'car1');
+        var carSprite2b = game.add.sprite(875, game.world.height - 210, 'car2');
+        var carSprite3b = game.add.sprite(875, game.world.height - 210, 'car3');
+        var carSprite4b = game.add.sprite(875, game.world.height - 210, 'car4');
+        var carSprite5b = game.add.sprite(875, game.world.height - 210, 'car5');
+        var carSprite6b = game.add.sprite(875, game.world.height - 210, 'car6');
+
+        carSprite0b.anchor.setTo(0.5, 0.5);
+        carSprite1b.anchor.setTo(0.5, 0.5);
+        carSprite2b.anchor.setTo(0.5, 0.5);
+        carSprite3b.anchor.setTo(0.5, 0.5);
+        carSprite4b.anchor.setTo(0.5, 0.5);
+        carSprite5b.anchor.setTo(0.5, 0.5);
+        carSprite6b.anchor.setTo(0.5, 0.5);
+
+
+        carSprite0b.angle = 180;
+        carSprite1b.angle = 180;
+        carSprite2b.angle = 180;
+        carSprite3b.angle = 180;
+        carSprite4b.angle = 180;
+        carSprite5b.angle = 180;
+        carSprite6b.angle = 180;
+
+        car0  = game.add.tween(carSprite0).to( { x: 800 }, 5000, null, false, 2000, -1);
+        car1  = game.add.tween(carSprite1).to( { x: 800 }, 10000, null, false, 2000, -1);
+        car2  = game.add.tween(carSprite2).to( { x: 800 }, 5000, null, false, 2000, -1);
+        car3  = game.add.tween(carSprite3).to( { x: 800 }, 3000, null, false, 2000, -1);
+        car4  = game.add.tween(carSprite4).to( { x: 800 }, 5000, null, false, 2000, -1);
+        car5  = game.add.tween(carSprite5).to( { x: 800 }, 5000, null, false, 2000, -1);
+        car6  = game.add.tween(carSprite6).to( { x: 800 }, 5000, null, false, 2000, -1);
+
+        car0b  = game.add.tween(carSprite0b).to( { x: -800 }, 5000, null, false, 2000, -1);
+        car1b  = game.add.tween(carSprite1b).to( { x: -800 }, 10000, null, false, 2000, -1);
+        car2b  = game.add.tween(carSprite2b).to( { x: -800 }, 5000, null, false, 2000, -1);
+        car3b  = game.add.tween(carSprite3b).to( { x: -800 }, 3000, null, false, 2000, -1);
+        car4b  = game.add.tween(carSprite4b).to( { x: -800 }, 5000, null, false, 2000, -1);
+        car5b  = game.add.tween(carSprite5b).to( { x: -800 }, 5000, null, false, 2000, -1);
+        car6b  = game.add.tween(carSprite6b).to( { x: -800 }, 5000, null, false, 2000, -1);
+
+        car0.chain(car1.chain(car2));
+        car3.chain(car4.chain(car5.chain(car6)));
+
+        car1b.chain(car2b.chain(car0b));
+        car6b.chain(car4b.chain(car3b.chain(car5b)));
+
       for (var i = 0; i < 5; i++){
           game.add.sprite(game.world.randomX, game.world.randomY, 'tree1');
           game.add.sprite(game.world.randomX, game.world.randomY, 'tree2');
           game.add.sprite(game.world.randomX, game.world.randomY, 'cactus');
-          game.add.sprite(-75, game.world.height - 225, `car${i}`);
+          // game.add.sprite(-75, game.world.height - 225, `car${i}`);
       }
 
-      game.add.sprite(0, game.world.height - 710, 'car');
-
-      for (var i = 0; i < 7; i++){
-          game.add.sprite(game.world.randomX, game.world.height - 710, `car${i}`);
-      }
-        //trying to use tween but not working?? not sure what it is exactly.
-      	game.add.tween(car).to( { x: game.world.centerX }, 4000, Phaser.Easing.Bounce.Out, true);
 
 
 
     }
 
     function update(){
+      car0.start();
+      car3.start();
 
+      car1b.start();
+      car6b.start();
     }
 
 
