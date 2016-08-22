@@ -84,13 +84,30 @@
         var carSprite5 = game.add.sprite(-75, game.world.height - 710, 'car5');
         var carSprite6 = game.add.sprite(-75, game.world.height - 710, 'car6');
 
-        var carSprite0b = game.add.sprite(-75, game.world.height - 230, 'car0');
-        var carSprite1b = game.add.sprite(-75, game.world.height -230, 'car1');
-        var carSprite2b = game.add.sprite(-75, game.world.height - 230, 'car2');
-        var carSprite3b = game.add.sprite(-75, game.world.height - 230, 'car3');
-        var carSprite4b = game.add.sprite(-75, game.world.height - 230, 'car4');
-        var carSprite5b = game.add.sprite(-75, game.world.height - 230, 'car5');
-        var carSprite6b = game.add.sprite(-75, game.world.height - 230, 'car6');
+        var carSprite0b = game.add.sprite(875, game.world.height - 210, 'car0');
+        var carSprite1b = game.add.sprite(875, game.world.height - 210, 'car1');
+        var carSprite2b = game.add.sprite(875, game.world.height - 210, 'car2');
+        var carSprite3b = game.add.sprite(875, game.world.height - 210, 'car3');
+        var carSprite4b = game.add.sprite(875, game.world.height - 210, 'car4');
+        var carSprite5b = game.add.sprite(875, game.world.height - 210, 'car5');
+        var carSprite6b = game.add.sprite(875, game.world.height - 210, 'car6');
+
+        carSprite0b.anchor.setTo(0.5, 0.5);
+        carSprite1b.anchor.setTo(0.5, 0.5);
+        carSprite2b.anchor.setTo(0.5, 0.5);
+        carSprite3b.anchor.setTo(0.5, 0.5);
+        carSprite4b.anchor.setTo(0.5, 0.5);
+        carSprite5b.anchor.setTo(0.5, 0.5);
+        carSprite6b.anchor.setTo(0.5, 0.5);
+
+
+        carSprite0b.angle = 180;
+        carSprite1b.angle = 180;
+        carSprite2b.angle = 180;
+        carSprite3b.angle = 180;
+        carSprite4b.angle = 180;
+        carSprite5b.angle = 180;
+        carSprite6b.angle = 180;
 
         car0  = game.add.tween(carSprite0).to( { x: 800 }, 5000, null, false, 2000, -1);
         car1  = game.add.tween(carSprite1).to( { x: 800 }, 10000, null, false, 2000, -1);
@@ -100,13 +117,13 @@
         car5  = game.add.tween(carSprite5).to( { x: 800 }, 5000, null, false, 2000, -1);
         car6  = game.add.tween(carSprite6).to( { x: 800 }, 5000, null, false, 2000, -1);
 
-        car0b  = game.add.tween(carSprite0b).to( { x: 800 }, 5000, null, false, 2000, -1);
-        car1b  = game.add.tween(carSprite1b).to( { x: 800 }, 10000, null, false, 2000, -1);
-        car2b  = game.add.tween(carSprite2b).to( { x: 800 }, 5000, null, false, 2000, -1);
-        car3b  = game.add.tween(carSprite3b).to( { x: 800 }, 3000, null, false, 2000, -1);
-        car4b  = game.add.tween(carSprite4b).to( { x: 800 }, 5000, null, false, 2000, -1);
-        car5b  = game.add.tween(carSprite5b).to( { x: 800 }, 5000, null, false, 2000, -1);
-        car6b  = game.add.tween(carSprite6b).to( { x: 800 }, 5000, null, false, 2000, -1);
+        car0b  = game.add.tween(carSprite0b).to( { x: -800 }, 5000, null, false, 2000, -1);
+        car1b  = game.add.tween(carSprite1b).to( { x: -800 }, 10000, null, false, 2000, -1);
+        car2b  = game.add.tween(carSprite2b).to( { x: -800 }, 5000, null, false, 2000, -1);
+        car3b  = game.add.tween(carSprite3b).to( { x: -800 }, 3000, null, false, 2000, -1);
+        car4b  = game.add.tween(carSprite4b).to( { x: -800 }, 5000, null, false, 2000, -1);
+        car5b  = game.add.tween(carSprite5b).to( { x: -800 }, 5000, null, false, 2000, -1);
+        car6b  = game.add.tween(carSprite6b).to( { x: -800 }, 5000, null, false, 2000, -1);
 
         car0.chain(car1.chain(car2));
         car3.chain(car4.chain(car5.chain(car6)));
